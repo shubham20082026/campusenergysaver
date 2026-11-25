@@ -239,14 +239,17 @@ Interactive API docs are at http://localhost:8000/docs.
 | Watts read 0 or look wrong | check the divider, and `SENSITIVITY` for your ACS712 version |
 | YOLO model downloads every time | run the camera script from the same folder each time |
 
-## 60-second demo script
+## Demo walkthrough (~1 minute)
 
-1. Show the dashboard with a person in front of the camera: status Occupied, load on.
-2. The person leaves. Status changes to "Empty, equipment on" and a Telegram warning arrives.
-3. The countdown bar fills, the relay clicks off, status shows "Switched off to save power",
-   and the rupees saved counter rises.
-4. The person returns and power is restored automatically.
-5. Finish on the savings calculator: rooms × watts × idle hours × tariff gives the yearly saving.
+> Start the app, open the dashboard, and point the camera at the room.
+> Demo mode uses shortened delays; real deployments use the defaults in `config`.
+
+1. **Occupied:** A person is in frame. The dashboard shows *Occupied* and the load is on.
+2. **Empty, equipment on:** The person leaves. Status changes to *Empty, equipment on* and a Telegram warning is sent.
+3. **Auto switch-off:** The countdown bar fills, the relay clicks off, and the status reads *Switched off to save power*. The rupees-saved counter starts rising.
+4. **Auto restore:** The person returns and power is restored automatically.
+5. **Savings estimate:** The calculator projects yearly savings:
+   `rooms × watts × idle hours × tariff`
 
 ## Limitations and next steps
 
